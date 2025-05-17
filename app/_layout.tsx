@@ -3,6 +3,7 @@ import React from "react";
 import { useColorScheme } from "react-native";
 import { Colors } from "../constants/Colors";
 import { StatusBar } from "expo-status-bar";
+import { UserProvider } from "../contexts/UserContext";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
@@ -10,7 +11,7 @@ const RootLayout = () => {
   const theme = Colors[colorScheme] ?? Colors.light;
 
   return (
-    <>
+    <UserProvider>
       {/* <StatusBar style="auto" /> */}
       <Stack
         screenOptions={{
@@ -31,7 +32,7 @@ const RootLayout = () => {
 
         <Stack.Screen name="(dashboard)" options={{ headerShown: false }} />
       </Stack>
-    </>
+    </UserProvider>
   );
 };
 
